@@ -1,0 +1,47 @@
+{
+  "name": "movie-explorer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build": "esbuild src/app/handlers/**/*.ts --bundle --platform=node --target=node20 --outdir=dist --sourcemap",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier -w .",
+    "test": "vitest run --coverage",
+    "dev:test": "vitest",
+    "local:env": "dotenv -e .env --",
+    "sam:build": "sam build",
+    "sam:local": "sam local start-api --warm-containers EAGER",
+    "sam:deploy": "sam deploy --guided"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.157",
+    "@types/node": "^24.9.2",
+    "@typescript-eslint/eslint-plugin": "^8.46.2",
+    "@typescript-eslint/parser": "^8.46.2",
+    "@vitest/coverage-v8": "^4.0.6",
+    "dotenv": "^17.2.3",
+    "dotenv-cli": "^11.0.0",
+    "esbuild": "^0.25.11",
+    "eslint": "^9.39.0",
+    "prettier": "^3.6.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.6"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.922.0",
+    "@aws-sdk/client-secrets-manager": "^3.922.0",
+    "@aws-sdk/lib-dynamodb": "^3.922.0",
+    "@middy/core": "^6.4.5",
+    "@middy/http-error-handler": "^6.4.5",
+    "@middy/http-json-body-parser": "^6.4.5",
+    "@middy/validator": "^6.4.5",
+    "joi": "^18.0.1",
+    "openai": "^6.7.0"
+  }
+}
